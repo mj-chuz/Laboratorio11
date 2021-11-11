@@ -1,12 +1,6 @@
-﻿using Laboratorio4;
-using Laboratorio4.Controllers;
+﻿using Laboratorio4.Controllers;
 using Laboratorio4.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
 using System.Web.Mvc;
 
 namespace Laboratorio4.Tests.Controllers
@@ -33,8 +27,6 @@ namespace Laboratorio4.Tests.Controllers
             FileResult archivo = planetasController.accederArchivo(id);
 
             Assert.IsNotNull(archivo);
-
-            
         }
 
         [TestMethod]
@@ -113,7 +105,7 @@ namespace Laboratorio4.Tests.Controllers
         public void ListadoDePlanetasCantidadDePlanetasEsCorrecta()
         {
             //Arrange
-            int numeroPlanetas = 10;
+            int numeroPlanetas = 70;
             PlanetasController planetasController = new PlanetasController();
             //Act
             ViewResult vista = planetasController.listadoDePlanetas() as ViewResult;
@@ -121,6 +113,4 @@ namespace Laboratorio4.Tests.Controllers
             Assert.AreEqual(numeroPlanetas, vista.ViewBag.planetas.Count);
         }
     }
-
-
 }
